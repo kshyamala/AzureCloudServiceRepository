@@ -1,115 +1,0 @@
-﻿<!DOCTYPE html>
-<html ng-app="myModule">
-    <head>
-        <meta charset="utf-8" />
-        <title></title>
-    </head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-
-    <script>
-
-
-        var app = angular.module("myModule", []);
-
-        app.service('operations', function ($http) {
-        this.getUsers = function () {                 return $http.get("http://skazuredemo.cloudapp.net/api/User/GetUser");             } 
-        this.post = function (User) {                 var request = $http({                     method: "post",                     url: "http://skazuredemo.cloudapp.net/api/User/CreateUser",                     data:  User                 });                 return request;             }
-                 });
-
-        app.controller('myController', function ($scope, operations) {
-                         loadRecords();              function loadRecords() {                 var promiseGet = operations.getUsers();                  promiseGet.then(function (response) { $scope.users = response.data },                   function (errorResponse) {                       alert("Error while retrieving user data. Response Code: " + errorResponse.status);                 });             }
-
-            $scope.add = function () {                 var data = {                         firstName: $scope.firstName,                         lastName: $scope.lastName,                         age: $scope.age,                         emailId: $scope.emailId,                 };                 var promisePost = operations.post(data);                     promisePost.then(function (response) {
-                        alert(response.data);                         loadRecords();                         clearData();                     }, function (errorResponse) {                         alert("Error while adding user data. Response Code: " + errorResponse.status);                     });             }; 
-            function clearData(){
-                $scope.firstName = "";
-                $scope.lastName = "";
-                $scope.age = "";
-                $scope.emailId = "";
-            }
-
-        });
-
-    </script>
-    <style>
-        .container {
-        border-radius: 10px;
-        background-color: #f2f2f2;
-        padding: 15px;
-        width: 25%;
-    }
-
-
-        input[type=button] {
-            background-color: #008CBA;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-
-        }
-    td {
-        padding: 7px;
-
-    } 
-
-
-
-    </style> 
-    <body ng-controller="myController">
-        
-        <h3>Create User</h3>
-        <div class=container>
-            <table border="1" width="100%">
-                <tr>
-                    <td><label>First Name:</label></td>
-                    <td><input type="text" name="txtfname"  ng-model="firstName"/></td>
-                </tr>
-                <tr>
-                    <td><label>Last Name:</label></td>
-                    <td><input type="text" name="txtlname"  ng-model="lastName" /></td>
-                </tr>
-                <tr>
-                    <td><label>Age:</label></td>
-                    <td><input type="text" name="txtage"  ng-model="age" /></td>
-                </tr>
-                <tr>
-                    <td><label>Email:</label></td>
-                    <td><input type="email" name="txtemail"  ng-model="emailId" /></td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center">
-                        <input type="button" value="Submit" ng-click="add()"></input>
-                    </td>
-                </tr>
-            </table>
-
-        </div>
-        <h3>Users List</h3>
-        <div class=container>
-            <table>
-                <thead>
-                    <tr>
-
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>Age</th>
-                        <th>Email</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <tr ng-repeat="user in users">
-
-                        <td> {{ user.FirstName }} </td>
-                        <td> {{ user.LastName }} </td>
-                        <td> {{ user.Age }} </td>
-                        <td> {{ user.EmailID }} </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-    </body>
-</html>
