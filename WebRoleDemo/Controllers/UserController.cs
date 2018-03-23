@@ -4,15 +4,22 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Description;
 using WebRoleDemo.Models;
 using WebRoleDemo.Data_Access;
 
 namespace WebRoleDemo.Controllers
 {
+    
     public class UserController : ApiController
     {
-        
-        [Route("api/User/GetUser")]
+        /// <summary>
+        /// Returns a list of all users 
+        /// </summary>
+        /// <returns>UserEntity type</returns>
+        [HttpGet]
+        [Route("api/user/list")]
+        [ResponseType(typeof(List<UserEntity>))]
         public List<UserEntity> Get()
         {
             UserEntityContext uContext = new UserEntityContext();
@@ -21,8 +28,14 @@ namespace WebRoleDemo.Controllers
         }
 
 
-       
-        [Route("api/User/CreateUser")]
+        /// <summary>
+        /// Adds new user 
+        /// </summary>
+        /// <param name="user">UserEntity type</param>
+        /// <returns>Success/Failure Message</returns>
+        [HttpPost]
+        [Route("api/user/create")]
+        [ResponseType(typeof(string))]
         public IHttpActionResult Post([FromBody]UserEntity user)
         {
             if (ModelState.IsValid)
@@ -40,7 +53,9 @@ namespace WebRoleDemo.Controllers
             }
             else
             {
-                return BadRequest(ModelState);
+                string[] str = ModelState.Keys.SelectMany(k => ModelState[k].Errors)
+                              .Select(m => m.ErrorMessage).ToArray();
+                return BadRequest(str[1]);
             }
         }
 

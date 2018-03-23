@@ -8,24 +8,43 @@ using Microsoft.WindowsAzure.Storage.Table;
 
 namespace WebRoleDemo.Models
 {
+    /// <summary>
+    /// UserEntity contains user information such as firstname, lastname, age and emailId.
+    /// </summary>
     public class UserEntity: TableEntity
     {
+
+        public UserEntity() { }
+
         public UserEntity(string sKey, string sRow)
         {
             this.PartitionKey = sKey;
             this.RowKey = sRow;
         }
-
-        public UserEntity() { }
         
+        /// <summary>
+        /// Firstname of the user
+        /// </summary>
         [Required]
-        public string FirstName { get; set; }
+        public string fname { get; set; }
+
+        /// <summary>
+        /// Lastname of the user
+        /// </summary>
         [Required]
-        public string LastName { get; set; }
-        [Range(0,120)]
-        public int Age { get; set; }
+        public string lname { get; set; }
+
+        /// <summary>
+        /// User's age
+        /// </summary>
+        [Range(18,65)]
+        public int age { get; set; }
+
+        /// <summary>
+        /// Email ID of the user
+        /// </summary>
         [RegularExpression(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$")]
-        public string EmailID { get; set; }
+        public string emailID { get; set; }
 
     }
 }

@@ -19,14 +19,14 @@ namespace WebRoleDemo.Data_Access
             bool bSuccess = false;
             try
             {
-                UserEntity user = new UserEntity("User", userinfo.LastName);
-                user.FirstName = userinfo.FirstName;
-                user.LastName = userinfo.LastName;
-                user.Age = userinfo.Age;
-                user.EmailID = userinfo.EmailID;
+                UserEntity user = new UserEntity("User", userinfo.lname);
+                user.fname = userinfo.fname;
+                user.lname = userinfo.lname;
+                user.age = userinfo.age;
+                user.emailID = userinfo.emailID;
 
-                //CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("AzureConnection"));
-                CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=sktblstorage;AccountKey=qsPycDrcqwkzAbHst5uiibGhF/AEpgqFuAV7LUl2nvE8q8ROEiruzf7pVPPzEPWaeOPjhBNB3AaHiNwJ9HQ76A==;EndpointSuffix=core.windows.net");
+                CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("AzureConnection"));
+                //CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=sktblstorage;AccountKey=qsPycDrcqwkzAbHst5uiibGhF/AEpgqFuAV7LUl2nvE8q8ROEiruzf7pVPPzEPWaeOPjhBNB3AaHiNwJ9HQ76A==;EndpointSuffix=core.windows.net");
                 CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
                 CloudTable table = tableClient.GetTableReference("user");
                 table.CreateIfNotExists();
@@ -51,8 +51,8 @@ namespace WebRoleDemo.Data_Access
             List<UserEntity> users = new List<UserEntity>();
 
             //Create a storage account object.
-            //CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("AzureConnection"));
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=sktblstorage;AccountKey=qsPycDrcqwkzAbHst5uiibGhF/AEpgqFuAV7LUl2nvE8q8ROEiruzf7pVPPzEPWaeOPjhBNB3AaHiNwJ9HQ76A==;EndpointSuffix=core.windows.net");
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(CloudConfigurationManager.GetSetting("AzureConnection"));
+            //CloudStorageAccount storageAccount = CloudStorageAccount.Parse("DefaultEndpointsProtocol=https;AccountName=sktblstorage;AccountKey=qsPycDrcqwkzAbHst5uiibGhF/AEpgqFuAV7LUl2nvE8q8ROEiruzf7pVPPzEPWaeOPjhBNB3AaHiNwJ9HQ76A==;EndpointSuffix=core.windows.net");
             // Create the table client.
             CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
