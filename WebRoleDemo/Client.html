@@ -27,7 +27,7 @@
             </tr>
             <tr>
                 <td><label>Email:</label></td>
-                <td><input type="email" name="txtemail" ng-model="emailId" /></td>
+                <td><input type="text" name="txtemail" ng-model="emailId" /></td>
             </tr>
             <tr>
                 <td colspan="2" align="center">
@@ -38,11 +38,7 @@
     </div>
     
     <div>
-        <h4>HTTP Response Details</h4>
-        <p>Output Message : {{message}}</p>
-        <p>StatusCode: {{statuscode}}</p>
-        <p>Status: {{status}}</p>
-        <p>Response Headers: {{headers}}</p>
+        <label>{{statusMessage}}</label>
     </div>
 
     <h3>Users List</h3>
@@ -62,10 +58,7 @@
                     <td> {{ user.lname }} </td>
                     <td> {{ user.age }} </td>
                     <td> {{ user.emailID }} </td>
-                </tr>
-                <tr><td>Abc</td><td>Bcd</td><td>23</td><td>asdsasda</td></tr>
-                <tr><td>Abc</td><td>Bcd</td><td>23</td><td>asdsasda</td></tr>
-                <tr><td>Abc</td><td>Bcd</td><td>23</td><td>asdsasda</td></tr>
+                </tr>                
             </tbody>
         </table>
     </div>

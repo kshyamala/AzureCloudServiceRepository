@@ -481,6 +481,11 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="T:WebRoleDemo.Controllers.UserController">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:WebRoleDemo.Controllers.UserController.Get">
             <summary>
             Returns a list of all users 
@@ -494,10 +499,41 @@
             <param name="user">UserEntity type</param>
             <returns>Success/Failure Message</returns>
         </member>
+        <member name="T:WebRoleDemo.Data_Access.UserEntityContext">
+            <summary>
+            User Entity Context to create and list users
+            </summary>
+        </member>
+        <member name="M:WebRoleDemo.Data_Access.UserEntityContext.CreateUser(WebRoleDemo.Models.UserEntity)">
+            <summary>
+            Create a new user
+            </summary>
+            <param name="userinfo"></param>
+            <returns></returns>                 
+        </member>
+        <member name="M:WebRoleDemo.Data_Access.UserEntityContext.GetUser(System.String)">
+            <summary>
+            List all users
+            </summary>
+            <param name="sUser"></param>
+            <returns></returns>
+        </member>
         <member name="T:WebRoleDemo.Models.UserEntity">
             <summary>
             UserEntity contains user information such as firstname, lastname, age and emailId.
             </summary>
+        </member>
+        <member name="M:WebRoleDemo.Models.UserEntity.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:WebRoleDemo.Models.UserEntity.#ctor(System.String,System.String)">
+            <summary>
+            Constructor for UserEntity
+            </summary>
+            <param name="sKey"></param>
+            <param name="sRow"></param>
         </member>
         <member name="P:WebRoleDemo.Models.UserEntity.fname">
             <summary>

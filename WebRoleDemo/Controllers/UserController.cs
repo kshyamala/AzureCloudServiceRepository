@@ -10,7 +10,9 @@ using WebRoleDemo.Data_Access;
 
 namespace WebRoleDemo.Controllers
 {
-    
+    /// <summary>
+    /// 
+    /// </summary>
     public class UserController : ApiController
     {
         /// <summary>
@@ -55,7 +57,7 @@ namespace WebRoleDemo.Controllers
             {
                 string[] str = ModelState.Keys.SelectMany(k => ModelState[k].Errors)
                               .Select(m => m.ErrorMessage).ToArray();
-                return BadRequest(str[1]);
+                return BadRequest(string.Join(" | ",str));
             }
         }
 

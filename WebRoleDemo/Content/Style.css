@@ -1,6 +1,7 @@
 ﻿    .container {
         border-radius: 10px;
         background-color: #f2f2f2;
+        overflow-x:auto;
         padding: 15px;
         width: 25%;
     }
