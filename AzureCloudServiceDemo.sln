@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "AzureCloudServiceDemo", "AzureCloudServiceDemo\AzureCloudServiceDemo.ccproj", "{572F7912-F890-4646-BD60-3E5C48487966}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebRoleDemo", "WebRoleDemo\WebRoleDemo.csproj", "{ADC5894A-73DF-42E2-B067-387B0ADBF55D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{572F7912-F890-4646-BD60-3E5C48487966}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{572F7912-F890-4646-BD60-3E5C48487966}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{572F7912-F890-4646-BD60-3E5C48487966}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{572F7912-F890-4646-BD60-3E5C48487966}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADC5894A-73DF-42E2-B067-387B0ADBF55D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADC5894A-73DF-42E2-B067-387B0ADBF55D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADC5894A-73DF-42E2-B067-387B0ADBF55D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADC5894A-73DF-42E2-B067-387B0ADBF55D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
